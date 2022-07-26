@@ -1,0 +1,89 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fdf2e9;
+  padding: 0 4.8rem;
+}
+
+.section-homepage {
+  background-color: #fdf2e9;
+  padding: 4.8rem 0 9.6rem 0;
+}
+
+.homepage {
+  max-width: 130rem;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9.6rem;
+  align-items: center;
+}
+
+.homepage-text {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.05;
+  color: #333;
+  letter-spacing: -0.5px;
+  margin-bottom: 3.2rem;
+}
+
+.homepage-description {
+  font-size: 2rem;
+  line-height: 1.6;
+  margin-bottom: 4.8rem;
+}
+
+.button {
+  display: inline-block;
+  background-color: #e67e22;
+  text-decoration: none;
+  color: #fff;
+  font-size: 2rem;
+  padding: 1.6rem 3.2rem;
+  border-radius: 9px;
+  font-weight: 500;
+  transition: all 1s;
+}
+
+.logo {
+  height: 7rem;
+}
+
+.main-image {
+  width: 100%;
+}
+.navigation-list {
+  list-style: none;
+  display: flex;
+  gap: 3.2rem;
+}
+
+.navi-main-list:link,
+.navi-main-list:visited {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 1.8rem;
+  transition: all 0.3s;
+}
+
+.navi-main-list:hover,
+.navi-main-list:active {
+  color: #cf711f;
+}
+
+.navi-main-list.navi-register:link,
+.navi-main-list.navi-register:visited {
+  padding: 1.2rem 2.4rem;
+  border-radius: 9px;
+  color: #fff;
+  background-color: #e67e22;
+}
+
+.navi-main-list.navi-register:hover,
+.navi-main-list.navi-register:active {
+  background-color: #cf711f;
+}
