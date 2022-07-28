@@ -3,9 +3,9 @@ import './css/Footer.css';
 
 function Footer() {
     return (
-        <div className='footer-container'>
+        <footer className='footer-container'>
             Intsagram Twitter TikTok
-        </div>
+        </footer>
     );
 }
 

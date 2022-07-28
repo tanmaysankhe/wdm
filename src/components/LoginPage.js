@@ -1,7 +1,7 @@
 import React from "react";
 import './css/Login.css'
 
-class ContactUs extends React.Component {
+class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = { curpage: "about", login: false };
@@ -34,14 +34,15 @@ class ContactUs extends React.Component {
         return (
             <div className="form-container">
                <form className="form-box">
-                    <input className="text-box" type="text" placeholder="First Name"/><br/>
                     <input className="text-box" type="text" placeholder="Email"/><br/>
-                    <textarea className="text-box" placeholder="Type your message"></textarea><br/>
-                    <button className="login-button" >Submit</button>
+                    <input className="text-box" type="text" placeholder="Password"/><br/>
+                    <input type="checkbox"/> Admin<br/>
+                    <button className="login-button">Login</button>
+                    <button className="login-button" onClick={this.props.forgotpass}>Forgot Password</button>
                </form>
             </div>
 
         );
     }
 }
-export default ContactUs;
+export default Login;
