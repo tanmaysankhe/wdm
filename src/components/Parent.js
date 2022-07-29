@@ -1,5 +1,6 @@
 import React from "react";
 import About from "./About";
+import AddNew from "./AddNewPage";
 import ContactUs from "./ContactUs";
 import './css/Parent.css'
 import Dashboard from "./Dashboard";
@@ -58,7 +59,7 @@ class Parent extends React.Component {
                 {this.state.curpage === "dash" && <Dashboard username="dummy" />}
                 {this.state.curpage === "contact" && <ContactUs />}
                 {this.state.curpage === "login" && <Login forgotpass={() => this.changePage("forgotpass")}></Login>}
-                {this.state.curpage === "register" && <Register></Register>}
+                {this.state.curpage === "register" && <AddNew></AddNew>}
                 {this.state.curpage === "forgotpass" && <ForgotPassword></ForgotPassword>}
             <Footer></Footer>
             </div>

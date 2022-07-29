@@ -1,4 +1,5 @@
 import Plot from 'react-plotly.js';
+import DashboardList from './DashboardList';
 
 const GroupedBarChart = (props) =>{
   var plot1 = {
@@ -29,6 +30,7 @@ function Dashboard(props) {
     return (
       <div>
         <GroupedBarChart></GroupedBarChart>
+        <DashboardList></DashboardList>
       </div>
     );
   }
