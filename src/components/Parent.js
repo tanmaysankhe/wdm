@@ -121,6 +121,7 @@ class Parent extends React.Component {
             {/* </ul> */}
           </div>
         </div>
+        <div style={{"marginTop":"150px"}}>
         {this.state.curpage === "home" && <Homepage></Homepage>}
         {this.state.curpage === "about" && <About></About>}
         {this.state.curpage === "dash" && <Dashboard username="dummy" />}
@@ -132,6 +133,7 @@ class Parent extends React.Component {
         {this.state.curpage === "forgotpass" && (
           <ForgotPassword></ForgotPassword>
         )}
+        </div>
         <Footer></Footer>
       </div>
     );
