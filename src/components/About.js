@@ -9,12 +9,18 @@ function About(props) {
           <div className="Abttext">
             <h1 className="Abtheading">About Us</h1>
             <p className="Abtdescription">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae
-              turpis massa sed elementum tempus egestas. Curabitur gravida arcu
-              ac tortor dignissim convallis aenean. Sagittis purus sit amet
-              volutpat consequat mauris nunc. Libero id faucibus nisl tincidunt
-              eget.
+              Diaz Sifontes is a very rich family in South America. They have a
+              lot of land on Margarita Island, where most of the area has so far
+              not gone through the proper heritage and it holds up to 275
+              families. Juana Velasquez is the founder of the town GUARAME, ISLA
+              DE MARGARITA, where Juana himself along with Ambrosio Diaz Noriega
+              holds a position at level 0 in ownership. The family members can
+              access the webpage by registering individually giving the unique
+              identities like ancestor and relationship. The next step that
+              comes after the member registration is, enrollment of the projects
+              that every individual holds in a family by giving the
+              relationship. It also offers from setting up trail records of a
+              project, land to giving up the advanced expenses of the heritage.
             </p>
           </div>
           <div className="Homeimage">

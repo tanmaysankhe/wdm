@@ -59,7 +59,7 @@ function Footer() {
                       size={20}
                       style={{ color: "#ffffff", marginRight: "2rem" }}
                     />{" "}
-                    dynasty@gmail.com
+                    sifontes@gmail.com
                   </h4>
                 </td>
               </tr>
@@ -68,9 +68,9 @@ function Footer() {
         </div>
         <div className="fcontent">
           <p>
-            © 2022 TexasLand.com All Rights Reserved Texas Real Estate
-            Commission Consumer Protection Notice Texas Real Estate Commission
-            Information About Brokerage Services
+            © 2022 diazsifontes.com All Rights Reserved Diaz Sifontes Estate
+            Commission Consumer Protection Notice Diaz Sifontes Estate
+            Commission Information About Brokerage Services.
           </p>
           <div className="socialmediaicons">
             <FaFacebook
