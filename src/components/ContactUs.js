@@ -45,7 +45,7 @@ class ContactUs extends React.Component {
             placeholder="Type your message"
           ></textarea>
           <br />
-          <button className="login-button">Submit</button>
+          <button className="normal-button">Submit</button>
         </form>
       </div>
     );

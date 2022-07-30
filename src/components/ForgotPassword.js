@@ -35,7 +35,7 @@ class ForgotPassword extends React.Component {
             <div className="form-container">
                <form className="form-box">
                     <input className="text-box" type="text" placeholder="Email"/><br/>
-                    <button className="login-button">Go</button>
+                    <button className="normal-button">Go</button>
                </form>
             </div>
         );

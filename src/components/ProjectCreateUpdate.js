@@ -33,7 +33,7 @@ class ProjectCreateUpdate extends React.Component {
                     </select><br/>
                     <input className="text-box" type="text" placeholder="Cost" /><br/>
                     <input className="text-box" type="date" placeholder="Date"/><br/>
-                    <button className="login-button" onClick={this.props.forgotpass}>Submit</button>
+                    <button className="normal-button" onClick={this.props.forgotpass}>Submit</button>
                </form>
             </div>
         );

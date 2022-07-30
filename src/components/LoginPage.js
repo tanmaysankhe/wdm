@@ -63,8 +63,8 @@ class Login extends React.Component {
             <input type="radio" name="radio" />
             Admin
           </label>
-          <button className="login-button" onClick={this.handleLogin}>Login</button>
-          <button className="login-button" onClick={this.props.forgotpass}>
+          <button className="normal-button" onClick={this.handleLogin}>Login</button>
+          <button className="normal-button" onClick={this.props.forgotpass}>
             Forgot Password
           </button>
         </form>
