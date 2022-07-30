@@ -8,9 +8,10 @@ import ForgotPassword from "./ForgotPassword";
 import Homepage from "./Homepage";
 import Login from "./LoginPage";
 import Register from "./RegisterPage";
-// import { HiOutlineMenuAlt4 } from "react-icons/hi";
-// import { FaRegTimesCircle } from "react-icons/fa";
-// import { BsFillHouseFill } from "react-icons/bs";
+import { HiOutlineMenuAlt4 } from "react-icons/hi";
+import { FaRegTimesCircle } from "react-icons/fa";
+import { BsFillHouseFill } from "react-icons/bs";
+import { useState } from "react";
 
 class Parent extends React.Component {
   constructor(props) {
@@ -43,80 +44,82 @@ class Parent extends React.Component {
 
   render() {
     return (
-      <div className="navigationbar">
-        <div className="nav-wrapper">
-          <h1>
-            {/* <span>
-              <BsFillHouseFill />
-              Dynasty
-            </span> */}
-          </h1>
-          {/* <ul> */}
-          <span>
-            <button
-              className="nav-button"
-              onClick={() => this.changePage("home")}
-            >
-              Home
-            </button>
-          </span>
-          <span>
-            <button
-              className="nav-button"
-              onClick={() => this.changePage("about")}
-            >
-              About
-            </button>
-          </span>
-          <span>
-            <button
-              className="nav-button"
-              onClick={() => this.changePage("contact")}
-            >
-              Contact
-            </button>
-          </span>
-          {!this.state.login && (
+      <div className="navbar">
+        <div className="container">
+          <div className="nav-menu">
+            <h1>
+              <span>
+                <BsFillHouseFill />
+                Diaz Sifontes
+              </span>
+            </h1>
+            {/* <ul> */}
             <span>
               <button
                 className="nav-button"
-                onClick={() => this.changePage("dash")}
+                onClick={() => this.changePage("home")}
               >
-                Dashboard
+                Home
               </button>
             </span>
-          )}
-          {!this.state.login ? (
             <span>
               <button
                 className="nav-button"
-                onClick={() => this.changeToLogin()}
+                onClick={() => this.changePage("about")}
               >
-                Login
+                About
               </button>
+            </span>
+            <span>
+              <button
+                className="nav-button"
+                onClick={() => this.changePage("contact")}
+              >
+                Contact
+              </button>
+            </span>
+            {!this.state.login && (
               <span>
                 <button
                   className="nav-button"
-                  onClick={() => this.changePage("register")}
+                  onClick={() => this.changePage("dash")}
                 >
-                  Register
+                  Dashboard
                 </button>
               </span>
-            </span>
-          ) : (
-            <span>
-              <button
-                className="nav-button"
-                onClick={() => this.changeToLogout()}
-              >
-                Logout
-              </button>
-            </span>
-          )}
-          {/* <div className="hamicon">
-            <HiOutlineMenuAlt4 className="ham" />
-          </div> */}
-          {/* </ul> */}
+            )}
+            {!this.state.login ? (
+              <span>
+                <button
+                  className="nav-button"
+                  onClick={() => this.changeToLogin()}
+                >
+                  Login
+                </button>
+                <span>
+                  <button
+                    className="nav-button"
+                    onClick={() => this.changePage("register")}
+                  >
+                    Register
+                  </button>
+                </span>
+              </span>
+            ) : (
+              <span>
+                <button
+                  className="nav-button"
+                  onClick={() => this.changeToLogout()}
+                >
+                  Logout
+                </button>
+              </span>
+            )}
+            <div className="hamicon">
+              <HiOutlineMenuAlt4 className="hamburger" />
+            </div>
+            {/* </ul> */}
+          </div>
         </div>
         {this.state.curpage === "home" && <Homepage></Homepage>}
         {this.state.curpage === "about" && <About></About>}
