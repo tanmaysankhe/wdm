@@ -21,8 +21,31 @@
 .navbar .nav-menu {
   display: flex;
 }
+.nav-button{
+  padding: 1rem;
+  color: #388087;
+  padding: 12px 24px;
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  font-size: 17pt;
+  font-weight: bolder;
+  transition: 0.2s;
+  cursor: pointer;
+}
 
-.navbar button {
+.nav-button:hover{
+  color: rgb(0, 0, 0);
+  background-color: #aee2e7;
+
+}
+
+.ses{
+  color: white;
+  background-color: #388087;
+}
+
+.navbar .normal-button {
   padding: 1rem;
   color: #fff;
   padding: 12px 24px;

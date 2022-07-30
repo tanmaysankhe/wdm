@@ -36,7 +36,7 @@ class DashboardList extends React.Component {
             <td>12900$</td>
             <td>07-30-2008</td>
             <td>
-              <button>Edit</button> <button>Delete</button>
+              <button className="normal-button">Edit</button> <button className="normal-button">Delete</button>
             </td>
           </tr>
           <tr>
@@ -47,7 +47,7 @@ class DashboardList extends React.Component {
             <td>12900$</td>
             <td>07-30-2008</td>
             <td>
-              <button>Edit</button> <button>Delete</button>
+              <button className="normal-button">Edit</button> <button className="normal-button">Delete</button>
             </td>
           </tr>
           <tr>
@@ -58,7 +58,7 @@ class DashboardList extends React.Component {
             <td>12900$</td>
             <td>07-30-2008</td>
             <td>
-              <button>Edit</button> <button>Delete</button>
+              <button className="normal-button">Edit</button> <button className="normal-button">Delete</button>
             </td>
           </tr>
         </table>
@@ -81,7 +81,7 @@ class DashboardList extends React.Component {
             <td>12900$</td>
             <td>07-30-2008</td>
             <td>
-              <button>Edit</button> <button>Delete</button>
+              <button className="normal-button">Edit</button> <button className="normal-button">Delete</button>
             </td>
           </tr>
           <tr>
@@ -92,7 +92,7 @@ class DashboardList extends React.Component {
             <td>12900$</td>
             <td>07-30-2008</td>
             <td>
-              <button>Edit</button> <button>Delete</button>
+              <button className="normal-button">Edit</button> <button className="normal-button">Delete</button>
             </td>
           </tr>
           <tr>
@@ -103,7 +103,7 @@ class DashboardList extends React.Component {
             <td>12900$</td>
             <td>07-30-2008</td>
             <td>
-              <button>Edit</button> <button>Delete</button>
+              <button className="normal-button">Edit</button> <button className="normal-button">Delete</button>
             </td>
           </tr>
         </table>
@@ -126,7 +126,7 @@ class DashboardList extends React.Component {
             <td>127367827</td>
             <td>07-30-2008</td>
             <td>
-              <button>Edit</button> <button>Delete</button>
+              <button className="normal-button">Edit</button> <button className="normal-button">Delete</button>
             </td>
           </tr>
           <tr>
@@ -137,7 +137,7 @@ class DashboardList extends React.Component {
             <td>127367827</td>
             <td>07-30-2008</td>
             <td>
-              <button>Edit</button> <button>Delete</button>
+              <button className="normal-button">Edit</button> <button className="normal-button">Delete</button>
             </td>
           </tr>
           <tr>
@@ -148,7 +148,7 @@ class DashboardList extends React.Component {
             <td>127367827</td>
             <td>07-30-2008</td>
             <td>
-              <button>Edit</button> <button>Delete</button>
+              <button className="normal-button">Edit</button> <button className="normal-button">Delete</button>
             </td>
           </tr>
         </table>

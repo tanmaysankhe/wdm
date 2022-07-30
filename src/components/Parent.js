@@ -56,7 +56,7 @@ class Parent extends React.Component {
             {/* <ul> */}
             <span>
               <button
-                className="nav-button"
+                className={`nav-button ${this.state.curpage === "home"? 'ses':''}` }
                 onClick={() => this.changePage("home")}
               >
                 Home
@@ -64,7 +64,7 @@ class Parent extends React.Component {
             </span>
             <span>
               <button
-                className="nav-button"
+                className={`nav-button ${this.state.curpage === "about"? 'ses':''}` }
                 onClick={() => this.changePage("about")}
               >
                 About
@@ -72,7 +72,7 @@ class Parent extends React.Component {
             </span>
             <span>
               <button
-                className="nav-button"
+                className={`nav-button ${this.state.curpage === "contact"? 'ses':''}` }
                 onClick={() => this.changePage("contact")}
               >
                 Contact
@@ -81,34 +81,33 @@ class Parent extends React.Component {
             {this.state.login && (
               <span>
                 <button
-                  className="nav-button"
+                  className={`nav-button ${this.state.curpage === "dash"? 'ses':''}` }
                   onClick={() => this.changePage("dash")}
                 >
                   Dashboard
                 </button>
               </span>
             )}
-            {!this.state.login ? (
-              <span>
+            {!this.state.login && <span>
                 <button
-                  className="nav-button"
+                  className={`nav-button`}
                   onClick={() => this.changeToLogin()}
                 >
                   Login
-                </button>
+                </button></span>}
+            {!this.state.login ? (
                 <span>
                   <button
-                    className="nav-button"
+                    className={`nav-button ${this.state.curpage === "register"? 'ses':''}` }
                     onClick={() => this.changePage("register")}
                   >
                     Register
                   </button>
                 </span>
-              </span>
             ) : (
               <span>
                 <button
-                  className="nav-button"
+                  className={`nav-button` }
                   onClick={() => this.changeToLogout()}
                 >
                   Logout

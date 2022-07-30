@@ -76,7 +76,7 @@ class Register extends React.Component {
 
           <br />
           {/* <input type="checkbox">Admin</input> */}
-          <button className="login-button">Register</button>
+          <button className="normal-button normal-button">Register</button>
         </form>
       </div>
     );
