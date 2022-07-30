@@ -1,4 +1,5 @@
 import Plot from 'react-plotly.js';
+import AddNew from './AddNewPage';
 import DashboardList from './DashboardList';
 
 const GroupedBarChart = (props) =>{
@@ -29,8 +30,10 @@ var data = [plot1, plot2];
 function Dashboard(props) {
     return (
       <div>
-        <GroupedBarChart></GroupedBarChart>
+        <GroupedBarChart></GroupedBarChart><br/>
+        <button onClick={props.addnewfun}>Add new</button>
         <DashboardList></DashboardList>
+
       </div>
     );
   }

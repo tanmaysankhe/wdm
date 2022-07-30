@@ -11,7 +11,7 @@ import Register from "./RegisterPage";
 import { HiOutlineMenuAlt4 } from "react-icons/hi";
 import { FaRegTimesCircle } from "react-icons/fa";
 import { BsFillHouseFill } from "react-icons/bs";
-import { useState } from "react";
+import AddNew from "./AddNewPage";
 
 class Parent extends React.Component {
   constructor(props) {
@@ -78,7 +78,7 @@ class Parent extends React.Component {
                 Contact
               </button>
             </span>
-            {!this.state.login && (
+            {this.state.login && (
               <span>
                 <button
                   className="nav-button"
@@ -124,12 +124,13 @@ class Parent extends React.Component {
         <div style={{"marginTop":"150px"}}>
         {this.state.curpage === "home" && <Homepage></Homepage>}
         {this.state.curpage === "about" && <About></About>}
-        {this.state.curpage === "dash" && <Dashboard username="dummy" />}
+        {this.state.curpage === "dash" && <Dashboard username="dummy" addnewfun={() => this.changePage("addnewpage")} />}
         {this.state.curpage === "contact" && <ContactUs />}
         {this.state.curpage === "login" && (
           <Login forgotpass={() => this.changePage("forgotpass")}></Login>
         )}
         {this.state.curpage === "register" && <Register></Register>}
+        {this.state.curpage === "addnewpage" && <AddNew></AddNew>}
         {this.state.curpage === "forgotpass" && (
           <ForgotPassword></ForgotPassword>
         )}
