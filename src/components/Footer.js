@@ -67,11 +67,10 @@ function Footer() {
           </div>
         </div>
         <div className="fcontent">
-          <h4>About the company</h4>
           <p>
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam"
+            © 2022 TexasLand.com All Rights Reserved Texas Real Estate
+            Commission Consumer Protection Notice Texas Real Estate Commission
+            Information About Brokerage Services
           </p>
           <div className="socialmediaicons">
             <FaFacebook
