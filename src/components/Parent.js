@@ -16,7 +16,7 @@ import AddNew from "./AddNewPage";
 class Parent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { curpage: "about", login: false };
+    this.state = { curpage: "home", login: false };
   }
 
   changePage = (p) => {
@@ -56,7 +56,9 @@ class Parent extends React.Component {
             {/* <ul> */}
             <span>
               <button
-                className={`nav-button ${this.state.curpage === "home"? 'ses':''}` }
+                className={`nav-button ${
+                  this.state.curpage === "home" ? "ses" : ""
+                }`}
                 onClick={() => this.changePage("home")}
               >
                 Home
@@ -64,7 +66,9 @@ class Parent extends React.Component {
             </span>
             <span>
               <button
-                className={`nav-button ${this.state.curpage === "about"? 'ses':''}` }
+                className={`nav-button ${
+                  this.state.curpage === "about" ? "ses" : ""
+                }`}
                 onClick={() => this.changePage("about")}
               >
                 About
@@ -72,7 +76,9 @@ class Parent extends React.Component {
             </span>
             <span>
               <button
-                className={`nav-button ${this.state.curpage === "contact"? 'ses':''}` }
+                className={`nav-button ${
+                  this.state.curpage === "contact" ? "ses" : ""
+                }`}
                 onClick={() => this.changePage("contact")}
               >
                 Contact
@@ -81,33 +87,40 @@ class Parent extends React.Component {
             {this.state.login && (
               <span>
                 <button
-                  className={`nav-button ${this.state.curpage === "dash"? 'ses':''}` }
+                  className={`nav-button ${
+                    this.state.curpage === "dash" ? "ses" : ""
+                  }`}
                   onClick={() => this.changePage("dash")}
                 >
                   Dashboard
                 </button>
               </span>
             )}
-            {!this.state.login && <span>
+            {!this.state.login && (
+              <span>
                 <button
                   className={`nav-button`}
                   onClick={() => this.changeToLogin()}
                 >
                   Login
-                </button></span>}
+                </button>
+              </span>
+            )}
             {!this.state.login ? (
-                <span>
-                  <button
-                    className={`nav-button ${this.state.curpage === "register"? 'ses':''}` }
-                    onClick={() => this.changePage("register")}
-                  >
-                    Register
-                  </button>
-                </span>
+              <span>
+                <button
+                  className={`nav-button ${
+                    this.state.curpage === "register" ? "ses" : ""
+                  }`}
+                  onClick={() => this.changePage("register")}
+                >
+                  Register
+                </button>
+              </span>
             ) : (
               <span>
                 <button
-                  className={`nav-button` }
+                  className={`nav-button`}
                   onClick={() => this.changeToLogout()}
                 >
                   Logout
@@ -120,19 +133,24 @@ class Parent extends React.Component {
             {/* </ul> */}
           </div>
         </div>
-        <div>
-        {this.state.curpage === "home" && <Homepage></Homepage>}
-        {this.state.curpage === "about" && <About></About>}
-        {this.state.curpage === "dash" && <Dashboard username="dummy" addnewfun={() => this.changePage("addnewpage")} />}
-        {this.state.curpage === "contact" && <ContactUs />}
-        {this.state.curpage === "login" && (
-          <Login forgotpass={() => this.changePage("forgotpass")}></Login>
-        )}
-        {this.state.curpage === "register" && <Register></Register>}
-        {this.state.curpage === "addnewpage" && <AddNew></AddNew>}
-        {this.state.curpage === "forgotpass" && (
-          <ForgotPassword></ForgotPassword>
-        )}
+        <div className="uppermargin">
+          {this.state.curpage === "home" && <Homepage></Homepage>}
+          {this.state.curpage === "about" && <About></About>}
+          {this.state.curpage === "dash" && (
+            <Dashboard
+              username="dummy"
+              addnewfun={() => this.changePage("addnewpage")}
+            />
+          )}
+          {this.state.curpage === "contact" && <ContactUs />}
+          {this.state.curpage === "login" && (
+            <Login forgotpass={() => this.changePage("forgotpass")}></Login>
+          )}
+          {this.state.curpage === "register" && <Register></Register>}
+          {this.state.curpage === "addnewpage" && <AddNew></AddNew>}
+          {this.state.curpage === "forgotpass" && (
+            <ForgotPassword></ForgotPassword>
+          )}
         </div>
         <Footer></Footer>
       </div>

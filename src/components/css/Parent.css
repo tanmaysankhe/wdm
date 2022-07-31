@@ -21,7 +21,12 @@
 .navbar .nav-menu {
   display: flex;
 }
-.nav-button{
+
+.nav-menu {
+  margin-left: -7rem;
+}
+
+.nav-button {
   padding: 1rem;
   color: #388087;
   padding: 12px 24px;
@@ -32,15 +37,15 @@
   font-weight: bolder;
   transition: 0.2s;
   cursor: pointer;
+  margin-left: 20px;
 }
 
-.nav-button:hover{
+.nav-button:hover {
   color: rgb(0, 0, 0);
-  background-color: #aee2e7;
-
+  background-color: #67b3b8;
 }
 
-.ses{
+.ses {
   color: white;
   background-color: #388087;
 }
@@ -55,6 +60,7 @@
   font-size: 1rem;
   transition: 0.4s;
   cursor: pointer;
+  margin-left: 1px;
 }
 
 .hamburger {
@@ -95,9 +101,11 @@
     height: fit-content;
     width: 100%;
     transition: 0.4s ease-in-out;
+    margin-left: -1rem;
   }
+
   .uppermargin {
-    margin-top: 180px;
+    margin-top: 250px;
   }
 
   /* .navbar .active {

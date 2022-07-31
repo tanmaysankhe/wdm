@@ -1,65 +1,62 @@
-import Plot from 'react-plotly.js';
-import AddNew from './AddNewPage';
-import DashboardList from './DashboardList';
+import Plot from "react-plotly.js";
+import AddNew from "./AddNewPage";
+import DashboardList from "./DashboardList";
 
-const GroupedBarChart = (props) =>{
+const GroupedBarChart = (props) => {
   var plot1 = {
-  x: ["User1", "User2", "User3", "User4", "User5"],
-  y: [4, 5, 6, 1, 4],
-  name: "Land",
-  type: "bar",
-};
+    x: ["User1", "User2", "User3", "User4", "User5"],
+    y: [4, 5, 6, 1, 4],
+    name: "Land",
+    type: "bar",
+  };
 
-var plot2 = {
-  x: ["User1", "User2", "User3", "User4", "User5"],
-  y: [12, 3, 5, 6, 2],
-  name: "Project",
-  type: "bar",
-};
+  var plot2 = {
+    x: ["User1", "User2", "User3", "User4", "User5"],
+    y: [12, 3, 5, 6, 2],
+    name: "Project",
+    type: "bar",
+  };
 
-var data = [plot1, plot2];
+  var data = [plot1, plot2];
 
-var piedata = [{
-  values: [64,36],
-  labels: ['Land', 'Project'],
-  type: 'pie'
-}];
+  var piedata = [
+    {
+      values: [64, 36],
+      labels: ["Land", "Project"],
+      type: "pie",
+    },
+  ];
 
-var pielayout = {
-  height: 500,
-  width: 500,
-  title:"Family wise land/project distribution"
-};
+  var pielayout = {
+    height: 500,
+    width: 500,
+    title: "Family wise land/project distribution",
+  };
 
-
-return(
-      <div>
+  return (
+    <div>
       <Plot
-      data={data}
-      layout={ {width: 500, height: 500, title: 'Land/Project holdings'} } />
-      
-      <Plot
-      data={piedata}
-      layout={pielayout}></Plot>
-      </div>)
-}
+        data={data}
+        layout={{ width: 500, height: 500, title: "Land/Project holdings" }}
+      />
 
-
-
-
-
+      <Plot data={piedata} layout={pielayout}></Plot>
+    </div>
+  );
+};
 
 function Dashboard(props) {
-    return (
-      <div>
-        <GroupedBarChart></GroupedBarChart><br/>
-  
-        <button class="normal-button" onClick={props.addnewfun}>Add new</button>
-        <DashboardList></DashboardList>
+  return (
+    <div>
+      <GroupedBarChart></GroupedBarChart>
+      <br />
 
-      </div>
-    );
-  }
-  
-  export default Dashboard;
-  
+      <button class="normal-button" onClick={props.addnewfun}>
+        Add new data
+      </button>
+      <DashboardList></DashboardList>
+    </div>
+  );
+}
+
+export default Dashboard;

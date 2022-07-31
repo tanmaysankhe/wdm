@@ -53,9 +53,20 @@
 }
 
 .tabs {
-  font-size: 40px;
-  padding: 10px;
-  margin: 20px;
+  padding: 1rem;
+  color: #388087;
+  padding: 12px 24px;
+  background-color: transparent;
+  border: none;
+  border-radius: 8px;
+  font-size: 17pt;
+  font-weight: bolder;
+  transition: 0.2s;
+  cursor: pointer;
+  margin-left: 20px;
+}
 
-  margin-left: 20rem;
+.ses {
+  color: white !important;
+  background-color: #092d30 !important;
 }

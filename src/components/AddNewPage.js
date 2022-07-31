@@ -19,13 +19,22 @@ class AddNew extends React.Component {
   render() {
     return (
       <div>
-        <button className="tabs" onClick={() => this.changeTab("project")}>
+        <button
+          className={`tabs ${this.state.curtab === "project" ? "ses" : ""}`}
+          onClick={() => this.changeTab("project")}
+        >
           Project
         </button>
-        <button className="tabs" onClick={() => this.changeTab("land")}>
+        <button
+          className={`tabs ${this.state.curtab === "land" ? "ses" : ""}`}
+          onClick={() => this.changeTab("land")}
+        >
           Land
         </button>
-        <button className="tabs" onClick={() => this.changeTab("trial")}>
+        <button
+          className={`tabs ${this.state.curtab === "trial" ? "ses" : ""}`}
+          onClick={() => this.changeTab("trial")}
+        >
           Trial
         </button>
 
