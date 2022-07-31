@@ -27,3 +27,8 @@ body {
   margin-bottom: -1.5rem;
   margin-left: 3rem;
 }
+@media screen and (max-width: 940px) {
+  .Homeimage {
+    display: none;
+  }
+}
