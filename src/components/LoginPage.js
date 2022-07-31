@@ -1,3 +1,7 @@
+/* Waseem Vadla 1002028525 
+Tanmay Yatin Sankhe 1002028004
+Zulfiya Amin Saiyed 1001929057 */
+
 import React from "react";
 import "./css/Login.css";
 
@@ -40,9 +44,10 @@ class Login extends React.Component {
   handleLogin = () => {
     if (this.state.email.trim().length === 0) {
       alert("Email or password is blank");
-    }
-    if (this.state.email === "root" && this.state.password === "password") {
-      alert("Login");
+    } else if (this.state.email === "admin") {
+      // this.props.admindash;
+    } else {
+      // this.props.userdash;
     }
   };
 
@@ -76,11 +81,14 @@ class Login extends React.Component {
             Admin
           </label>
           <br></br>
-          <button className="normal-button" onClick={this.handleLogin}>
-            Login
+          <button className="normal-button" onClick={this.props.userdash}>
+            Login(User Dashboard)
           </button>
           <button className="normal-button" onClick={this.props.forgotpass}>
             Forgot Password
+          </button>
+          <button className="normal-button" onClick={this.props.admindash}>
+            Admin(Testing purpose)
           </button>
         </form>
       </div>

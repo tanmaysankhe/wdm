@@ -1,3 +1,7 @@
+/* Waseem Vadla 1002028525 
+Tanmay Yatin Sankhe 1002028004
+Zulfiya Amin Saiyed 1001929057 */
+
 import home from "./images/home.png";
 import "./css/Homepage.css";
 import { AiOutlineSearch } from "react-icons/ai";

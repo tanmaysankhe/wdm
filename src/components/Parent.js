@@ -1,3 +1,7 @@
+/* Waseem Vadla 1002028525 
+Tanmay Yatin Sankhe 1002028004
+Zulfiya Amin Saiyed 1001929057 */
+
 import React from "react";
 import About from "./About";
 import ContactUs from "./ContactUs";
@@ -12,6 +16,7 @@ import { HiOutlineMenuAlt4 } from "react-icons/hi";
 import { FaRegTimesCircle } from "react-icons/fa";
 import { BsFillHouseFill } from "react-icons/bs";
 import AddNew from "./AddNewPage";
+import AdminDashboard from "./AdminDashboard";
 
 class Parent extends React.Component {
   constructor(props) {
@@ -88,9 +93,9 @@ class Parent extends React.Component {
               <span>
                 <button
                   className={`nav-button ${
-                    this.state.curpage === "dash" ? "ses" : ""
+                    this.state.curpage === "userdash" ? "ses" : ""
                   }`}
-                  onClick={() => this.changePage("dash")}
+                  onClick={() => this.changePage("userdash")}
                 >
                   Dashboard
                 </button>
@@ -136,7 +141,7 @@ class Parent extends React.Component {
         <div className="uppermargin">
           {this.state.curpage === "home" && <Homepage></Homepage>}
           {this.state.curpage === "about" && <About></About>}
-          {this.state.curpage === "dash" && (
+          {this.state.curpage === "userdash" && (
             <Dashboard
               username="dummy"
               addnewfun={() => this.changePage("addnewpage")}
@@ -144,9 +149,16 @@ class Parent extends React.Component {
           )}
           {this.state.curpage === "contact" && <ContactUs />}
           {this.state.curpage === "login" && (
-            <Login forgotpass={() => this.changePage("forgotpass")}></Login>
+            <Login
+              forgotpass={() => this.changePage("forgotpass")}
+              userdash={() => this.changePage("userdash")}
+              admindash={() => this.changePage("admindash")}
+            ></Login>
           )}
           {this.state.curpage === "register" && <Register></Register>}
+          {this.state.curpage === "admindash" && (
+            <AdminDashboard></AdminDashboard>
+          )}
           {this.state.curpage === "addnewpage" && <AddNew></AddNew>}
           {this.state.curpage === "forgotpass" && (
             <ForgotPassword></ForgotPassword>

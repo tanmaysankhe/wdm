@@ -4,9 +4,10 @@ Zulfiya Amin Saiyed 1001929057 */
 
 import React from "react";
 import "./css/Login.css";
-import "./css/DashboardList.css";
 
-class DashboardList extends React.Component {
+import "./css/Admindashboard.css";
+
+class AdminDashboard extends React.Component {
   constructor(props) {
     super(props);
     this.state = { curtab: "" };
@@ -22,7 +23,7 @@ class DashboardList extends React.Component {
     return (
       <div>
         <br></br>
-
+        <h1>Admin Dashboard</h1>
         <br></br>
         <h2>Project Table</h2>
         <table className="dashboardtable">
@@ -170,9 +171,58 @@ class DashboardList extends React.Component {
             </td>
           </tr>
         </table>
+        <br></br>
+        <h2>User Details Table</h2>
+        <table className="dashboardtable">
+          <tr>
+            <th>User ID</th>
+            <th>First Name</th>
+            <th>Email</th>
+
+            <th>Networth</th>
+            <th>DOB</th>
+            <th>Edit/Declare Demise</th>
+          </tr>
+          <tr>
+            <td>127367091</td>
+            <td>221031476</td>
+            <td>Iraida Diaz Alfonzo</td>
+
+            <td>12900$</td>
+            <td>07-30-2008</td>
+            <td>
+              <button className="normal-button">Edit</button>{" "}
+              <button className="normal-button">Demise</button>
+            </td>
+          </tr>
+          <tr>
+            <td>127367068</td>
+            <td>221031678</td>
+            <td>Mario Diaz Alfonzo</td>
+
+            <td>12900$</td>
+            <td>06-23-2012</td>
+            <td>
+              <button className="normal-button">Edit</button>{" "}
+              <button className="normal-button">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>127367351</td>
+            <td>127367487</td>
+            <td>Melchor</td>
+
+            <td>12900$</td>
+            <td>04-20-2019</td>
+            <td>
+              <button className="normal-button">Edit</button>{" "}
+              <button className="normal-button">Delete</button>
+            </td>
+          </tr>
+        </table>
       </div>
     );
   }
 }
 
-export default DashboardList;
+export default AdminDashboard;
