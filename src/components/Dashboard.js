@@ -4,14 +4,14 @@ import DashboardList from "./DashboardList";
 
 const GroupedBarChart = (props) => {
   var plot1 = {
-    x: ["User1", "User2", "User3", "User4", "User5"],
+    x: ["Iraida", "Manuel", "Mario", "Melchor", "Iraima "],
     y: [4, 5, 6, 1, 4],
     name: "Land",
     type: "bar",
   };
 
   var plot2 = {
-    x: ["User1", "User2", "User3", "User4", "User5"],
+    x: ["Iraida", "Manuel", "Mario", "Melchor", "Iraima "],
     y: [12, 3, 5, 6, 2],
     name: "Project",
     type: "bar",
@@ -48,6 +48,7 @@ const GroupedBarChart = (props) => {
 function Dashboard(props) {
   return (
     <div>
+      <h1>User Dashboard</h1>
       <GroupedBarChart></GroupedBarChart>
       <br />
 
