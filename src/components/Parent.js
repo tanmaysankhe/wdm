@@ -1,3 +1,7 @@
+/* Waseem Vadla 1002028525 
+Tanmay Yatin Sankhe 1002028004
+Zulfiya Amin Saiyed 1001929057 */
+
 import React from "react";
 import About from "./About";
 import ContactUs from "./ContactUs";
@@ -89,9 +93,9 @@ class Parent extends React.Component {
               <span>
                 <button
                   className={`nav-button ${
-                    this.state.curpage === "dash" ? "ses" : ""
+                    this.state.curpage === "userdash" ? "ses" : ""
                   }`}
-                  onClick={() => this.changePage("dash")}
+                  onClick={() => this.changePage("userdash")}
                 >
                   Dashboard
                 </button>

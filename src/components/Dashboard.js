@@ -1,3 +1,7 @@
+/* Waseem Vadla 1002028525 
+Tanmay Yatin Sankhe 1002028004
+Zulfiya Amin Saiyed 1001929057 */
+
 import Plot from "react-plotly.js";
 import AddNew from "./AddNewPage";
 import DashboardList from "./DashboardList";
