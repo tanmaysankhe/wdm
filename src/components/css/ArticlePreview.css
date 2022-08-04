@@ -1,0 +1,17 @@
+/* Waseem Vadla 1002028525 
+Tanmay Yatin Sankhe 1002028004
+Zulfiya Amin Saiyed 1001929057 */
+
+body {
+    color: #388087;
+}
+
+.blog-image{
+    width:380px
+}
+
+@media screen and (max-width: 940px) {
+    .Homeimage {
+        display: none;
+    }
+}
