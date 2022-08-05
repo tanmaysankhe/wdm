@@ -90,6 +90,16 @@ class Parent extends React.Component {
                 Contact
               </button>
             </span>
+            <span>
+              <button
+                className={`nav-button ${
+                  this.state.curpage === "blog" ? "ses" : ""
+                }`}
+                onClick={() => this.changePage("blog")}
+              >
+                Blog
+              </button>
+            </span>
             {this.state.login && (
               <span>
                 <button
