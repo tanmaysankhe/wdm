@@ -17,11 +17,12 @@ import { FaRegTimesCircle } from "react-icons/fa";
 import { BsFillHouseFill } from "react-icons/bs";
 import AddNew from "./AddNewPage";
 import AdminDashboard from "./AdminDashboard";
+import Blog from "./Blog";
 
 class Parent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { curpage: "home", login: false };
+    this.state = { curpage: "blog", login: false };
   }
 
   changePage = (p) => {
@@ -87,6 +88,16 @@ class Parent extends React.Component {
                 onClick={() => this.changePage("contact")}
               >
                 Contact
+              </button>
+            </span>
+            <span>
+              <button
+                className={`nav-button ${
+                  this.state.curpage === "blog" ? "ses" : ""
+                }`}
+                onClick={() => this.changePage("blog")}
+              >
+                Blog
               </button>
             </span>
             {this.state.login && (
@@ -163,6 +174,7 @@ class Parent extends React.Component {
           {this.state.curpage === "forgotpass" && (
             <ForgotPassword></ForgotPassword>
           )}
+          {this.state.curpage ==="blog" && <Blog></Blog>}
         </div>
         <Footer></Footer>
       </div>

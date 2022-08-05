@@ -8,7 +8,14 @@ import "./css/Login.css";
 class Login extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { curpage: "about", login: false, email: "", password: "" };
+    this.state = {
+      curpage: "about",
+      login: false,
+      email: "",
+      password: "",
+      emailError: "",
+      passError: ""
+    };
   }
 
   changePage = (p) => {
@@ -34,22 +41,36 @@ class Login extends React.Component {
   };
 
   handleChange = (evt) => {
+    const name = evt.target.name;
     const value = evt.target.value;
     this.setState({
       ...this.state,
-      [evt.target.name]: value,
-    });
+      [name]: value,
+    }, () => { this.validateField(name, value) });
   };
 
-  handleLogin = () => {
-    if (this.state.email.trim().length === 0) {
-      alert("Email or password is blank");
-    } else if (this.state.email === "admin") {
-      // this.props.admindash;
-    } else {
-      // this.props.userdash;
+  validateField(fieldName, value) {
+    let emailValid = "";
+    let pwdValid = "";
+    let emailInvalidMessage = this.state.emailError;
+    let passwordInvalidMessage = this.state.passError;
+    switch (fieldName) {
+      case 'email':
+        emailValid = /\S+@\S+\.\S+/.test(value);
+        emailInvalidMessage = emailValid ? '' : ' Email is invalid';
+        break;
+      case 'password':
+        pwdValid = value.length >= 8
+        passwordInvalidMessage = pwdValid ? '' : ' Mininum length required is 8';
+        break;
+      default:
+        break;
     }
-  };
+    this.setState({
+      emailError:emailInvalidMessage,
+      passError:passwordInvalidMessage
+    });
+  }
 
   render() {
     return (
@@ -63,16 +84,16 @@ class Login extends React.Component {
             name="email"
             value={this.state.email}
             onChange={this.handleChange}
-          />
+          /><span style={{"color":"red"}}>{this.state.emailError}</span>
           <br />
           <input
             className="text-box"
-            type="text"
+            type="password"
             placeholder="Password"
             name="password"
             value={this.state.password}
             onChange={this.handleChange}
-          />
+          /><span style={{"color":"red"}}>{this.state.passError}</span>
           <br />
           <label class="form-control">
             <input type="radio" checked="checked" name="radio" />
