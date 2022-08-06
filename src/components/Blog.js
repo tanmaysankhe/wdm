@@ -7,7 +7,9 @@ export default class Blog extends React.Component {
         this.state = {
             posts: [],
             searchtext: "",
-            updatedPosts: []
+            updatedPosts: [],
+            sortType:true,
+            sortText:"Sort by date"
         };
         // setTimeout(() => this.updateDatabase(this.state.posts), 10000);
     }
@@ -35,6 +37,23 @@ export default class Blog extends React.Component {
     handleSearch = () => {
         const result = this.state.posts.filter(post => post.title.includes(this.state.searchtext));
         this.setState({updatedPosts:result});
+    }
+
+    handleSort = () => {
+        if(this.state.sortType){
+            this.state.updatedPosts.sort(function(a,b){
+                return new Date(a.modified) - new Date(b.modified);
+              });
+              this.setState({sortType:false, sortText:"Descending"});
+        }
+        else{
+            this.state.updatedPosts.sort(function(a,b){
+                return new Date(b.modified) - new Date(a.modified);
+              });
+              this.setState({sortType:true, sortText:"Ascending"});
+
+        }
+
     }
 
     handleSubmit = (e, onSubmitProps) => {
@@ -73,7 +92,7 @@ export default class Blog extends React.Component {
                     <button className="btn" style={{ "margin": "5px" }}>Add New Post</button>
                 </a>
                 <button className="btn" style={{ "margin": "5px" }} onClick={this.handleSubmit}>Sync Database</button>
-                <button className="btn" style={{ "margin": "5px" }} onClick={this.handleSort}>Sort by date</button>
+                <button className="btn" style={{ "margin": "5px" }} onClick={this.handleSort}>{this.state.sortText}</button>
                 <br></br>
                 <input
                     className="text-box"
