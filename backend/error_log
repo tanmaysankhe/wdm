@@ -1,0 +1,54 @@
+[05-Aug-2022 21:20:11 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/txs8004/public_html/backend/register.php on line 16
+[05-Aug-2022 21:20:46 UTC] PHP Parse error:  syntax error, unexpected '}', expecting end of file in /home/txs8004/public_html/backend/register.php on line 16
+[05-Aug-2022 22:24:05 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/txs8004/public_html/backend/login.php:7) in /home/txs8004/public_html/backend/login.php on line 18
+[05-Aug-2022 22:28:45 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/txs8004/public_html/backend/login.php:7) in /home/txs8004/public_html/backend/login.php on line 18
+[06-Aug-2022 06:06:33 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/txs8004/public_html/backend/register.php on line 25
+[06-Aug-2022 06:06:59 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/txs8004/public_html/backend/register.php on line 25
+[06-Aug-2022 06:07:01 UTC] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in /home/txs8004/public_html/backend/register.php on line 25
+[06-Aug-2022 14:55:29 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/txs8004/public_html/backend/blog.php on line 6
+[06-Aug-2022 14:56:27 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/txs8004/public_html/backend/blog.php on line 6
+[06-Aug-2022 14:56:30 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/txs8004/public_html/backend/blog.php on line 6
+[06-Aug-2022 14:58:15 UTC] PHP Warning:  Invalid argument supplied for foreach() in /home/txs8004/public_html/backend/blog.php on line 6
+[06-Aug-2022 15:02:29 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/txs8004/public_html/backend/blog.php on line 7
+[06-Aug-2022 15:02:37 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/txs8004/public_html/backend/blog.php on line 7
+[06-Aug-2022 15:02:50 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/txs8004/public_html/backend/blog.php on line 7
+[06-Aug-2022 15:03:03 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/txs8004/public_html/backend/blog.php on line 7
+[06-Aug-2022 15:17:27 UTC] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting '-' or identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/txs8004/public_html/backend/blog.php on line 12
+[06-Aug-2022 15:17:29 UTC] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting '-' or identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/txs8004/public_html/backend/blog.php on line 12
+[06-Aug-2022 15:17:45 UTC] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting '-' or identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home/txs8004/public_html/backend/blog.php on line 12
+[06-Aug-2022 15:42:51 UTC] PHP Warning:  mysqli_query(): Empty query in /home/txs8004/public_html/backend/blog.php on line 10
+[06-Aug-2022 15:43:45 UTC] PHP Fatal error:  Uncaught Error: Object of class mysqli_result could not be converted to string in /home/txs8004/public_html/backend/blog.php:11
+Stack trace:
+#0 {main}
+  thrown in /home/txs8004/public_html/backend/blog.php on line 11
+[06-Aug-2022 17:14:20 UTC] PHP Warning:  json_decode() expects parameter 1 to be string, array given in /home/txs8004/public_html/backend/blog.php on line 8
+[06-Aug-2022 17:15:06 UTC] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO) in /home/txs8004/public_html/backend/blog.php on line 9
+[06-Aug-2022 17:15:24 UTC] PHP Warning:  Illegal string offset 'blogname' in /home/txs8004/public_html/backend/blog.php on line 18
+[06-Aug-2022 17:15:24 UTC] PHP Warning:  Illegal string offset 'url' in /home/txs8004/public_html/backend/blog.php on line 19
+[06-Aug-2022 17:15:24 UTC] PHP Warning:  Illegal string offset 'blogid' in /home/txs8004/public_html/backend/blog.php on line 20
+[06-Aug-2022 17:15:24 UTC] PHP Warning:  Illegal string offset 'author' in /home/txs8004/public_html/backend/blog.php on line 21
+[06-Aug-2022 17:15:24 UTC] PHP Warning:  Illegal string offset 'blogname' in /home/txs8004/public_html/backend/blog.php on line 23
+[06-Aug-2022 17:15:24 UTC] PHP Warning:  Illegal string offset 'url' in /home/txs8004/public_html/backend/blog.php on line 24
+[06-Aug-2022 17:15:24 UTC] PHP Warning:  Illegal string offset 'blogid' in /home/txs8004/public_html/backend/blog.php on line 25
+[06-Aug-2022 17:15:24 UTC] PHP Warning:  Illegal string offset 'author' in /home/txs8004/public_html/backend/blog.php on line 26
+[06-Aug-2022 17:15:24 UTC] PHP Warning:  Illegal string offset 'blogname' in /home/txs8004/public_html/backend/blog.php on line 18
+[06-Aug-2022 17:15:24 UTC] PHP Warning:  Illegal string offset 'url' in /home/txs8004/public_html/backend/blog.php on line 19
+[06-Aug-2022 17:15:24 UTC] PHP Warning:  Illegal string offset 'blogid' in /home/txs8004/public_html/backend/blog.php on line 20
+[06-Aug-2022 17:15:24 UTC] PHP Warning:  Illegal string offset 'author' in /home/txs8004/public_html/backend/blog.php on line 21
+[06-Aug-2022 17:15:24 UTC] PHP Warning:  Illegal string offset 'blogname' in /home/txs8004/public_html/backend/blog.php on line 23
+[06-Aug-2022 17:15:24 UTC] PHP Warning:  Illegal string offset 'url' in /home/txs8004/public_html/backend/blog.php on line 24
+[06-Aug-2022 17:15:24 UTC] PHP Warning:  Illegal string offset 'blogid' in /home/txs8004/public_html/backend/blog.php on line 25
+[06-Aug-2022 17:15:24 UTC] PHP Warning:  Illegal string offset 'author' in /home/txs8004/public_html/backend/blog.php on line 26
+[06-Aug-2022 17:15:24 UTC] PHP Warning:  Illegal string offset 'blogname' in /home/txs8004/public_html/backend/blog.php on line 18
+[06-Aug-2022 17:15:24 UTC] PHP Warning:  Illegal string offset 'url' in /home/txs8004/public_html/backend/blog.php on line 19
+[06-Aug-2022 17:15:24 UTC] PHP Warning:  Illegal string offset 'blogid' in /home/txs8004/public_html/backend/blog.php on line 20
+[06-Aug-2022 17:15:24 UTC] PHP Warning:  Illegal string offset 'author' in /home/txs8004/public_html/backend/blog.php on line 21
+[06-Aug-2022 17:15:24 UTC] PHP Warning:  Illegal string offset 'blogname' in /home/txs8004/public_html/backend/blog.php on line 23
+[06-Aug-2022 17:15:24 UTC] PHP Warning:  Illegal string offset 'url' in /home/txs8004/public_html/backend/blog.php on line 24
+[06-Aug-2022 17:15:24 UTC] PHP Warning:  Illegal string offset 'blogid' in /home/txs8004/public_html/backend/blog.php on line 25
+[06-Aug-2022 17:15:24 UTC] PHP Warning:  Illegal string offset 'author' in /home/txs8004/public_html/backend/blog.php on line 26
+[06-Aug-2022 17:41:00 UTC] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR) in /home/txs8004/public_html/backend/blog.php on line 35
+[06-Aug-2022 17:41:09 UTC] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR) in /home/txs8004/public_html/backend/blog.php on line 35
+[06-Aug-2022 17:41:26 UTC] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR) in /home/txs8004/public_html/backend/blog.php on line 35
+[06-Aug-2022 17:42:04 UTC] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR) in /home/txs8004/public_html/backend/blog.php on line 35
+[06-Aug-2022 17:42:30 UTC] PHP Parse error:  syntax error, unexpected '\' (T_NS_SEPARATOR) in /home/txs8004/public_html/backend/blog.php on line 35

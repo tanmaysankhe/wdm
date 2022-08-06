@@ -1,8 +1,15 @@
 <?php
 require 'conn.php';
 
-$recEmail=$_POST['email'];
-$recPwd=$_POST['testpwd'];
+$data = json_decode(file_get_contents('php://input'), true);
+echo $data;
+print_r($data);
+
+
+$recEmail = $data['email'];
+$recPwd = $data['testpwd'];
+
+
 
 echo $recEmail;
 echo $recPwd;
@@ -15,7 +22,7 @@ if ($result->num_rows > 0) {
         $json=json_encode($row);
         echo $json;
 	} else {
-		echo "<div>Something went wrong.</div>";
+		echo "Something went wrong.";
 	}
 }
 ?>

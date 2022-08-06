@@ -141,7 +141,6 @@ class Parent extends React.Component {
             <div className="hamicon">
               <HiOutlineMenuAlt4 className="hamburger" />
             </div>
-            {/* </ul> */}
           </div>
         </div>
         <div className="uppermargin">

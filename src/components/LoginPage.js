@@ -6,6 +6,7 @@ import axios from "axios";
 import React from "react";
 import "./css/Login.css";
 
+
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -75,16 +76,16 @@ class Login extends React.Component {
   handleSubmit = (e, onSubmitProps) => {
     e.preventDefault();
     console.log("IN HANDLE")
-    let formData = new FormData();
-    formData.append("email", this.state.email);
-    formData.append("testpwd", this.state.password);
+    // let formData = new FormData();
+    // formData.append("email", this.state.email);
+    // formData.append("testpwd", this.state.password);
     let body = {
       "email":this.state.email,
       "testpwd":this.state.password
     };
     console.log(body);
     const url = 'https://txs8004.uta.cloud/backend/login.php';
-    axios.post(url, formData)
+    axios.post(url, body)
       .then(res => this.handleSucess(res))
       .catch(err => console.log(err));
   }

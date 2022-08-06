@@ -18,7 +18,9 @@ class Register extends React.Component {
      emailError: "",
      passError: "",
      usernameError:"",
-     confpassError:""
+     confpassError:"",
+     relation:"",
+     ancestor:""
     };
   }
 
@@ -124,8 +126,7 @@ class Register extends React.Component {
             Ancestor
           </label>
           <div class="select">
-            <select id="standard-select">
-              {/* <option value="Option length">Select Ancestor</option> */}
+            <select id="standard-select" onChange={this.handleChange} value={this.state.relation}>
               <option value="Option 1" selected>Diaz</option>
               <option value="Option 2">Sofnetes 2</option>
               <option value="Option 3">Sofnetes Jr</option>
@@ -138,8 +139,7 @@ class Register extends React.Component {
             Relationship
           </label>
           <div class="select">
-            <select id="standard-select">
-              {/* <option value="Option length">Select Relationship</option> */}
+            <select id="standard-select" onChange={this.handleChange} value={this.state.relation}>
               <option value="Option 1" selected>Father</option>
               <option value="Option 2">Mother</option>
               <option value="Option 3">Wife</option>
