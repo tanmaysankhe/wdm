@@ -2,19 +2,20 @@
 require 'conn.php';
 
 $recEmail=$_POST['email'];
-$recPwd=$_POST['pwd'];
+$recPwd=$_POST['testpwd'];
 
-$sql = "SELECT * FROM `registeredusers` WHERE `emailId`='{$recEmail}' AND `password`='{$recPwd}'";
+echo $recEmail;
+echo $recPwd;
+
+$sql = "SELECT * FROM `Users` WHERE `UserEmail`='{$recEmail}' AND `Password`='{$recPwd}'";
 if($result=mysqli_query($conn, $sql)){
 
 if ($result->num_rows > 0) {
 		$row = mysqli_fetch_assoc($result);
         $json=json_encode($row);
-
-        echo $json;bv
+        echo $json;
 	} else {
-		echo "<script>alert('Woops! Email or Password is Wrong.')</script>";
+		echo "<div>Something went wrong.</div>";
 	}
 }
-
 ?>

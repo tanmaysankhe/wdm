@@ -2,6 +2,7 @@
 Tanmay Yatin Sankhe 1002028004
 Zulfiya Amin Saiyed 1001929057 */
 
+import axios from "axios";
 import React from "react";
 import "./css/Login.css";
 
@@ -67,6 +68,36 @@ class Register extends React.Component {
     });
   }
 
+  handleSubmit = (e, onSubmitProps) => {
+    e.preventDefault();
+    console.log("IN HANDLE")
+    let formData = new FormData();
+    formData.append("email", this.state.email);
+    formData.append("testpwd", this.state.password);
+    formData.append("fullname", this.state.username);
+    let body = {
+      "email":this.state.email,
+      "testpwd":this.state.password
+    };
+    console.log(body);
+    const url = 'https://txs8004.uta.cloud/backend/register.php';
+    axios.post(url, formData)
+      .then(res => this.handleSucess(res))
+      .catch(err => console.log(err));
+  }
+
+  handleSucess = (res) =>{
+    console.log(res.data);  
+    if(res.data.includes("Something went wrong")){
+      alert("Authentication failed");
+    }
+    else{
+      this.props.userdash();
+      console.log("Login success");
+    }  
+  }
+
+
   render() {
     return (
       <div className="form-container">
@@ -119,7 +150,7 @@ class Register extends React.Component {
 
           <br />
           {/* <input type="checkbox">Admin</input> */}
-          <button className="normal-button normal-button">Register</button>
+          <button className="normal-button normal-button" onClick={this.handleSubmit}>Register</button>
         </form>
       </div>
     );

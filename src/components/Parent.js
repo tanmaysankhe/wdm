@@ -26,19 +26,20 @@ class Parent extends React.Component {
   }
 
   changePage = (p) => {
-    console.log(p);
-    this.setState({
-      curpage: p,
-    });
+    if (p === "userdash") {
+      this.setState({
+        curpage: p,
+        login: true
+      });
+    }
+    else {
+      this.setState({
+        curpage: p,
+      });
+    }
+
   };
 
-  changeToLogin = () => {
-    console.log("in");
-    this.setState({
-      login: true,
-      curpage: "login",
-    });
-  };
 
   changeToLogout = () => {
     console.log("out");
@@ -62,9 +63,8 @@ class Parent extends React.Component {
             {/* <ul> */}
             <span>
               <button
-                className={`nav-button ${
-                  this.state.curpage === "home" ? "ses" : ""
-                }`}
+                className={`nav-button ${this.state.curpage === "home" ? "ses" : ""
+                  }`}
                 onClick={() => this.changePage("home")}
               >
                 Home
@@ -72,9 +72,8 @@ class Parent extends React.Component {
             </span>
             <span>
               <button
-                className={`nav-button ${
-                  this.state.curpage === "about" ? "ses" : ""
-                }`}
+                className={`nav-button ${this.state.curpage === "about" ? "ses" : ""
+                  }`}
                 onClick={() => this.changePage("about")}
               >
                 About
@@ -82,9 +81,8 @@ class Parent extends React.Component {
             </span>
             <span>
               <button
-                className={`nav-button ${
-                  this.state.curpage === "contact" ? "ses" : ""
-                }`}
+                className={`nav-button ${this.state.curpage === "contact" ? "ses" : ""
+                  }`}
                 onClick={() => this.changePage("contact")}
               >
                 Contact
@@ -92,9 +90,8 @@ class Parent extends React.Component {
             </span>
             <span>
               <button
-                className={`nav-button ${
-                  this.state.curpage === "blog" ? "ses" : ""
-                }`}
+                className={`nav-button ${this.state.curpage === "blog" ? "ses" : ""
+                  }`}
                 onClick={() => this.changePage("blog")}
               >
                 Blog
@@ -103,9 +100,8 @@ class Parent extends React.Component {
             {this.state.login && (
               <span>
                 <button
-                  className={`nav-button ${
-                    this.state.curpage === "userdash" ? "ses" : ""
-                  }`}
+                  className={`nav-button ${this.state.curpage === "userdash" ? "ses" : ""
+                    }`}
                   onClick={() => this.changePage("userdash")}
                 >
                   Dashboard
@@ -116,7 +112,7 @@ class Parent extends React.Component {
               <span>
                 <button
                   className={`nav-button`}
-                  onClick={() => this.changeToLogin()}
+                  onClick={() => this.changePage("login")}
                 >
                   Login
                 </button>
@@ -125,9 +121,8 @@ class Parent extends React.Component {
             {!this.state.login ? (
               <span>
                 <button
-                  className={`nav-button ${
-                    this.state.curpage === "register" ? "ses" : ""
-                  }`}
+                  className={`nav-button ${this.state.curpage === "register" ? "ses" : ""
+                    }`}
                   onClick={() => this.changePage("register")}
                 >
                   Register
@@ -154,7 +149,6 @@ class Parent extends React.Component {
           {this.state.curpage === "about" && <About></About>}
           {this.state.curpage === "userdash" && (
             <Dashboard
-              username="dummy"
               addnewfun={() => this.changePage("addnewpage")}
             />
           )}
@@ -166,7 +160,7 @@ class Parent extends React.Component {
               admindash={() => this.changePage("admindash")}
             ></Login>
           )}
-          {this.state.curpage === "register" && <Register></Register>}
+          {this.state.curpage === "register" && <Register userdash={() => this.changePage("userdash")}></Register>}
           {this.state.curpage === "admindash" && (
             <AdminDashboard></AdminDashboard>
           )}
@@ -174,7 +168,7 @@ class Parent extends React.Component {
           {this.state.curpage === "forgotpass" && (
             <ForgotPassword></ForgotPassword>
           )}
-          {this.state.curpage ==="blog" && <Blog></Blog>}
+          {this.state.curpage === "blog" && <Blog></Blog>}
         </div>
         <Footer></Footer>
       </div>
