@@ -5,7 +5,9 @@ export default class Blog extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            posts: []
+            posts: [],
+            searchtext: "",
+            updatedPosts: []
         };
         // setTimeout(() => this.updateDatabase(this.state.posts), 10000);
     }
@@ -15,12 +17,26 @@ export default class Blog extends React.Component {
                 "https://public-api.wordpress.com/rest/v1/sites/wdm386557167.wordpress.com/posts"
             )
             .then(res => {
-                this.setState({ posts: res.data.posts });
+                this.setState({ posts: res.data.posts, updatedPosts: res.data.posts });
             })
             .catch(error => console.log(error));
 
     }
-    
+
+    handleChange = (evt) => {
+        const name = evt.target.name;
+        const value = evt.target.value;
+        this.setState({
+            ...this.state,
+            [name]: value,
+        });
+    };
+
+    handleSearch = () => {
+        const result = this.state.posts.filter(post => post.title.includes(this.state.searchtext));
+        this.setState({updatedPosts:result});
+    }
+
     handleSubmit = (e, onSubmitProps) => {
         e.preventDefault();
         console.log("IN HANDLE")
@@ -32,15 +48,14 @@ export default class Blog extends React.Component {
         }
 
         this.state.posts.map(post => {
-            body.allposts.push({                
-            "blogid": post.ID,
-            "blogname": post.title,
-            "author": post.author.name,
-            "url": post.URL})
-            }
+            body.allposts.push({
+                "blogid": post.ID,
+                "blogname": post.title,
+                "author": post.author.name,
+                "url": post.URL
+            })
+        }
         )
-
-        
 
         console.log("bodyyy");
         console.log(body);
@@ -53,14 +68,25 @@ export default class Blog extends React.Component {
 
     render() {
         return (
-            <div className="blog">
+            <div className="center-align">
                 <a href="https://wordpress.com/post/wdm386557167.wordpress.com" target="_blank">
                     <button className="btn" style={{ "margin": "5px" }}>Add New Post</button>
                 </a>
-                <button className="btn" onClick={this.handleSubmit}>Sync database</button>
+                <button className="btn" style={{ "margin": "5px" }} onClick={this.handleSubmit}>Sync Database</button>
+                <button className="btn" style={{ "margin": "5px" }} onClick={this.handleSort}>Sort by date</button>
+                <br></br>
+                <input
+                    className="text-box"
+                    type="text"
+                    placeholder="Search"
+                    name="searchtext"
+                    value={this.state.searchtext}
+                    onChange={this.handleChange}
+                />
+                <button className="btn" style={{ "margin": "5px" }} onClick={this.handleSearch}>Search</button>
 
                 <div>
-                    {this.state.posts.map(post => <ArticlePreview post={post} />)}
+                    {this.state.updatedPosts.map(post => <ArticlePreview post={post} />)}
                 </div>
                 {/* <input onClick={this.handleSubmit}>Update database</input> */}
             </div>

@@ -6,6 +6,16 @@ body {
     color: #388087;
 }
 
+.center-align{
+    position: relative;
+    padding: 50px 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-size: cover;
+}
+
 .blog-image{
     width:380px
 }
