@@ -2,6 +2,7 @@
 Tanmay Yatin Sankhe 1002028004
 Zulfiya Amin Saiyed 1001929057 */
 
+import axios from "axios";
 import React from "react";
 import "./css/Login.css";
 
@@ -71,6 +72,34 @@ class Login extends React.Component {
       passError:passwordInvalidMessage
     });
   }
+  handleSubmit = (e, onSubmitProps) => {
+    e.preventDefault();
+    console.log("IN HANDLE")
+    let formData = new FormData();
+    formData.append("email", this.state.email);
+    formData.append("testpwd", this.state.password);
+    let body = {
+      "email":this.state.email,
+      "testpwd":this.state.password
+    };
+    console.log(body);
+    const url = 'https://txs8004.uta.cloud/backend/login.php';
+    axios.post(url, formData)
+      .then(res => this.handleSucess(res))
+      .catch(err => console.log(err));
+  }
+
+  handleSucess = (res) =>{
+    console.log(res.data);  
+    if(res.data.includes("Something went wrong")){
+      alert("Authentication failed");
+    }
+    else{
+      this.props.userdash();
+      console.log("Login success");
+    }  
+  }
+
 
   render() {
     return (
@@ -102,7 +131,7 @@ class Login extends React.Component {
             Admin
           </label>
           <br></br>
-          <button className="normal-button" onClick={this.props.userdash}>
+          <button className="normal-button" onClick={this.handleSubmit}>
             Login(User Dashboard)
           </button>
           <button className="normal-button" onClick={this.props.forgotpass}>

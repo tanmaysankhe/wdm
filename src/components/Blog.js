@@ -7,6 +7,7 @@ export default class Blog extends React.Component {
         this.state = {
             posts: []
         };
+        // setTimeout(() => this.updateDatabase(this.state.posts), 10000);
     }
     componentDidMount() {
         axios
@@ -15,10 +16,29 @@ export default class Blog extends React.Component {
             )
             .then(res => {
                 this.setState({ posts: res.data.posts });
-                console.log(this.state.posts);
             })
             .catch(error => console.log(error));
-    }
+            
+   // }
+
+    // handleSubmit = (e, onSubmitProps) => {
+    //     e.preventDefault();
+    //     console.log("IN HANDLE")
+    //     let formData = new FormData();
+    //     formData.append("WordPressID", this.state.email);
+    //     formData.append("URL", this.state.password);
+    //     formData.append("Title", this.state.password);
+        
+    //     // let body = [];
+    //     // for (var i = 0; i < numrows; i++) {
+    //     //     ObjectRow()
+    //     // } 
+    //     // console.log(body);
+    //     const url = 'https://txs8004.uta.cloud/backend/blogupdate.php';
+    //     axios.post(url, formData)
+    //       .then(res => this.handleSucess(res))
+    //       .catch(err => console.log(err));
+      }
 
     render() {
         return (
@@ -30,6 +50,7 @@ export default class Blog extends React.Component {
                 <div>
                     {this.state.posts.map(post => <ArticlePreview post={post} />)}
                 </div>
+                {/* <input onClick={this.handleSubmit}>Update database</input> */}
             </div>
         );
     }

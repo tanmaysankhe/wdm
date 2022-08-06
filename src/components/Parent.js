@@ -22,7 +22,7 @@ import Blog from "./Blog";
 class Parent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { curpage: "blog", login: false };
+    this.state = { curpage: "userdash", login: false };
   }
 
   changePage = (p) => {
