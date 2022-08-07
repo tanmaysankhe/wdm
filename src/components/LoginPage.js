@@ -87,15 +87,15 @@ class Login extends React.Component {
     const url = 'https://txs8004.uta.cloud/backend/login.php';
     axios.post(url, body)
       .then(res => this.handleSucess(res))
-      .catch(err => console.log(err));
+      .catch(err => alert("Authentication failed"));
   }
 
   handleSucess = (res) =>{
     console.log(res.data);  
-    if(res.data.includes("Something went wrong")){
-      alert("Authentication failed");
-    }
-    else{
+    if(true){
+      window.sessionStorage.setItem("currUsername", res.data.FullName);
+      window.sessionStorage.setItem("currUserID", res.data.UserID);
+      window.sessionStorage.setItem("currUserEmail", res.data.UserEmail);
       this.props.userdash();
       console.log("Login success");
     }  

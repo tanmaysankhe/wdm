@@ -4,23 +4,33 @@ require 'conn.php';
 $recEmail=$_POST['email'];
 $recPwd=$_POST['testpwd'];
 $recName =$_POST['fullname'];
-
+$recAncestor = $_POST['ancestor'];
+$recRelation = $_POST['relation'];familyName;
+$recfamilyName = $_POST['familyName'];
 echo $recEmail;
 echo $recPwd;
 echo $recName;
+echo $recAncestor;
+echo $recRelation;
+echo $recfamilyName;
+
+echo "after echo";
+
 
 $query="INSERT INTO `Users` (`FullName`, `UserEmail`, `Password`) VALUES ( '$recName', '$recEmail', '$recPwd')";
 
 if(mysqli_query($conn,$query)){
- echo "Data has been inserted successfully";
-//  $sql=$conn->query("SELECT `rid` FROM `registeredusers` WHERE `emailId`='{$recEmail}' LIMIT 1");
-//  $userrow=$sql->fetch_assoc();
-//  $rid=$userrow['rid'];
-//    if($userRole == 'student'){
-//       $stuquery="INSERT INTO `student`(`sid`, `fistName`, `lastName`, `emailId`) VALUES ('$rid','$recFname','$recLname', '$recEmail')";
-//       if(mysqli_query($conn,$stuquery)){
-//          echo "Student record created";
-//    }
+ echo "Users updated successfully";
+         $sql=$conn->query("SELECT * FROM `Users` ORDER BY 1 DESC LIMIT 1");
+         $userrow=$sql->fetch_assoc();
+         $userid=$userrow['UserID'];
+         
+         
+         $query="INSERT INTO `Family` (`FamilyID`, `UserID`, `FamilyName`, `FamilyRole`) VALUES ( '$recAncestor', '$userid', '$recfamilyName', 'Member')";
+      if(mysqli_query($conn,$query)){
+         echo "Family updated sucessfully";
+    }
+
 }
 else{
    echo "Something went wrong.";

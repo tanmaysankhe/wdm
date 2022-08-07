@@ -20,8 +20,21 @@ class Register extends React.Component {
      usernameError:"",
      confpassError:"",
      relation:"",
-     ancestor:""
+     ancestor:"",
+     allAncestor:[],
+     buttonDisable:""
     };
+  }
+
+  componentDidMount() {
+    axios
+        .get(
+            "https://txs8004.uta.cloud/backend/getfamily.php"
+        )
+        .then(res => {
+            this.setState({ allAncestor: res.data});
+        })
+        .catch(error => console.log(error));
   }
 
   handleChange = (evt) => {
@@ -67,7 +80,7 @@ class Register extends React.Component {
       passError:passwordInvalidMessage,
       usernameError:usernameInvalidMessage,
       confpassError:confpassInvalidMessage
-    });
+    }, ()=> this.disableButton());
   }
 
   handleSubmit = (e, onSubmitProps) => {
@@ -77,11 +90,11 @@ class Register extends React.Component {
     formData.append("email", this.state.email);
     formData.append("testpwd", this.state.password);
     formData.append("fullname", this.state.username);
-    let body = {
-      "email":this.state.email,
-      "testpwd":this.state.password
-    };
-    console.log(body);
+    formData.append("ancestor", this.state.ancestor);
+    formData.append("relation", this.state.relation);
+    const found = this.state.allAncestor.find(anc => anc.FamilyID === this.state.ancestor);
+    formData.append("familyName", found.FamilyName);
+    console.log(found);
     const url = 'https://txs8004.uta.cloud/backend/register.php';
     axios.post(url, formData)
       .then(res => this.handleSucess(res))
@@ -97,6 +110,15 @@ class Register extends React.Component {
       this.props.userdash();
       console.log("Login success");
     }  
+  }
+
+  disableButton = () => {
+    if(this.state.emailError === "" && this.state.passError === "" && this.state.confpassError === ""){
+      this.setState({buttonDisable:""})
+    }
+    else{
+      this.setState({buttonDisable:"disabled"})
+    }
   }
 
 
@@ -126,12 +148,10 @@ class Register extends React.Component {
             Ancestor
           </label>
           <div class="select">
-            <select id="standard-select" onChange={this.handleChange} value={this.state.relation}>
-              <option value="Option 1" selected>Diaz</option>
-              <option value="Option 2">Sofnetes 2</option>
-              <option value="Option 3">Sofnetes Jr</option>
-              <option value="Option 4">Charles</option>
-              <option value="Option 5">Michael</option>
+            <select id="standard-select" onChange={this.handleChange} name="ancestor" value={this.state.ancestor}>
+              {this.state.allAncestor.map(anc => (
+              <option value={anc.FamilyID}>{anc.FamilyName}</option>
+              ))}
             </select>
           </div>
 
@@ -139,18 +159,26 @@ class Register extends React.Component {
             Relationship
           </label>
           <div class="select">
-            <select id="standard-select" onChange={this.handleChange} value={this.state.relation}>
-              <option value="Option 1" selected>Father</option>
-              <option value="Option 2">Mother</option>
-              <option value="Option 3">Wife</option>
-              <option value="Option 4">Son</option>
-              <option value="Option 5">Daughter</option>
+            <select id="standard-select" onChange={this.handleChange} name="relation" value={this.state.relation}>
+              <option value="Father" selected>Father</option>
+              <option value="Mother">Mother</option>
+              <option value="Wife">Wife</option>
+              <option value="Son">Son</option>
+              <option value="Daughter">Daughter</option>
             </select>
           </div>
 
           <br />
           {/* <input type="checkbox">Admin</input> */}
-          <button className="normal-button normal-button" onClick={this.handleSubmit}>Register</button>
+          {!this.state.buttonDisable ? 
+        <button className={"normal-button"} 
+        onClick={this.handleSubmit}>Register</button>
+        :  
+        <button className={"dis-button"} disabled>Register</button>
+        }
+        
+          
+          
         </form>
       </div>
     );

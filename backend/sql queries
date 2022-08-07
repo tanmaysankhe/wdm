@@ -1,0 +1,7 @@
+CREATE TABLE Family (
+          FamilyID INT,
+          UserID INT,
+		  FamilyName varchar(250),
+          FamilyRole varchar(250),
+          PRIMARY KEY (FamilyID, UserID)
+     );

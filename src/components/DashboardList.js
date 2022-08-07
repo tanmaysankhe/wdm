@@ -5,12 +5,29 @@ Zulfiya Amin Saiyed 1001929057 */
 import React from "react";
 import "./css/Login.css";
 import "./css/DashboardList.css";
+import axios from "axios";
 
 class DashboardList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { curtab: "" };
+    this.state = { data: "" };
   }
+
+  componentDidMount() {
+    axios
+        .get(
+            "https://txs8004.uta.cloud/backend/getAllAssets.php"
+        )
+        .then(res => {
+            this.setState({ data: res.data});
+            window.sessionStorage.setItem("projects", JSON.stringify(res.data.Projects));
+            window.sessionStorage.setItem("family", JSON.stringify(res.data.Family));
+            window.sessionStorage.setItem("users", JSON.stringify(res.data.Users));   
+            window.sessionStorage.setItem("projectownership", JSON.stringify(res.data.ProjectOwnership));                     
+        })
+        .catch(error => console.log(error));
+  }
+  
 
   data = {
     "project": [{
