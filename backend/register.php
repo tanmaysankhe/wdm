@@ -26,7 +26,7 @@ if(mysqli_query($conn,$query)){
          $userid=$userrow['UserID'];
          
          
-         $query="INSERT INTO `Family` (`FamilyID`, `UserID`, `FamilyName`, `FamilyRole`) VALUES ( '$recAncestor', '$userid', '$recfamilyName', 'Member')";
+         $query="INSERT INTO `Family` (`FamilyID`, `UserID`, `FamilyName`, `FamilyRole`) VALUES ( '$recAncestor', '$userid', '$recfamilyName', '$recRelation')";
       if(mysqli_query($conn,$query)){
          echo "Family updated sucessfully";
     }

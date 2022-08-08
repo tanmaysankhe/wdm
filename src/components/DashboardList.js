@@ -23,7 +23,10 @@ class DashboardList extends React.Component {
             window.sessionStorage.setItem("projects", JSON.stringify(res.data.Projects));
             window.sessionStorage.setItem("family", JSON.stringify(res.data.Family));
             window.sessionStorage.setItem("users", JSON.stringify(res.data.Users));   
-            window.sessionStorage.setItem("projectownership", JSON.stringify(res.data.ProjectOwnership));                     
+            window.sessionStorage.setItem("projectownership", JSON.stringify(res.data.ProjectOwnership));
+            window.sessionStorage.setItem("land", JSON.stringify(res.data.Land));
+            window.sessionStorage.setItem("landownership", JSON.stringify(res.data.LandOwnership));
+            window.sessionStorage.setItem("trial", JSON.stringify(res.data.Trial));                       
         })
         .catch(error => console.log(error));
   }
@@ -93,21 +96,101 @@ class DashboardList extends React.Component {
 
   };
 
-  projectFieldNames = ["Project ID", "User ID", "Valuation"];
-  landFieldNames = ["Land ID", "User ID", "Valuation"];
-  trialFieldNames = ["Trial ID", "User ID", "Valuation"];
-  userFieldNames = ["User ID", "DOB", "Valuation"];
+
+
+  projectFieldNames = ["Project ID", "ProjectName", "User ID", "Valuation", "Percent Owned"];
+  landFieldNames = ["Land ID", "User ID", "Land Name", "Percent Owned", "Area"];
+  trialFieldNames = ["Trial ID", "User ID", "Asset Type", "Asset ID", "Outcome", "Fees"];
+  userFieldNames = ["User ID", "FullName", "UserEmail"];
 
   render() {
     return (
       <div>
-        <Dashtable tableType={"Projects"} fieldnames={this.projectFieldNames} data={this.data.project}></Dashtable>
-        <Dashtable tableType={"Land"} fieldnames={this.landFieldNames} data={this.data.land}></Dashtable>
-        <Dashtable tableType={"Trials"} fieldnames={this.trialFieldNames} data={this.data.trial}></Dashtable>
-        <Dashtable tableType={"User"} fieldnames={this.userFieldNames} data={this.data.user}></Dashtable>
+        <Dashtable tableType={"Projects"} fieldnames={this.projectFieldNames} data={this.state.data.ProjectOwnership}></Dashtable>
+        <DashtableLand tableType={"Land"} fieldnames={this.landFieldNames} data={this.state.data.LandOwnership}></DashtableLand>
+        <DashtableTrial tableType={"Trials"} fieldnames={this.trialFieldNames} data={this.state.data.Trial}></DashtableTrial>
+        <DashtableUsers tableType={"User"} fieldnames={this.userFieldNames} data={this.state.data.Users}></DashtableUsers>
       </div>
     );
   }
+}
+function DashtableUsers(props) {
+  return (<div>
+    <br/>
+    <h2>{props.tableType}</h2>
+    <table className="dashboardtable">
+      <tr>
+        {props.fieldnames.map(x => <th>{x}</th>)}
+      </tr>
+
+      {props.data?.map(row => (
+        <tr>
+          <td>{row.UserID}</td>
+          <td>{row.FullName}</td>
+          <td>{row.UserEmail}</td>
+          
+        </tr>
+      ))}
+    </table>
+    <br/>
+  </div>)
+}
+
+function DashtableTrial(props) {
+  return (<div>
+    <br/>
+    <h2>{props.tableType}</h2>
+    <table className="dashboardtable">
+      <tr>
+        {props.fieldnames.map(x => <th>{x}</th>)}
+        <th>Edit/Delete</th>
+      </tr>
+
+      {props.data?.map(row => (
+        <tr>
+          <td>{row.TrailID}</td>
+          <td>{row.UserID}</td>
+          <td>{row.AssetType}</td>
+          <td>{row.AssetID}</td>
+          <td>{row.Outcome}</td>
+          <td>{row.Fees}</td>
+          <td>
+            <button className="normal-button">Edit</button>{" "}
+            <button className="normal-button">Delete</button>
+          </td>
+        </tr>
+      ))}
+    </table>
+    <br/>
+  </div>)
+}
+
+function DashtableLand(props) {
+  return (<div>
+    <br/>
+    <h2>{props.tableType}</h2>
+    <table className="dashboardtable">
+      <tr>
+        {props.fieldnames.map(x => <th>{x}</th>)}
+        <th>Edit/Delete</th>
+      </tr>
+
+      {props.data?.map(row => (
+        <tr>
+          <td>{row.LandID}</td>
+          <td>{row.UserID}</td>
+          <td>{row.LandName}</td>
+          <td>{row.PercentOwned}</td>
+          <td>{row.Area}</td>
+          <td>
+            <button className="normal-button">Edit</button>{" "}
+            <button className="normal-button">Delete</button>
+          </td>
+        </tr>
+      ))}
+    </table>
+    <br/>
+  </div>)
 }
 
 function Dashtable(props) {
@@ -120,11 +203,13 @@ function Dashtable(props) {
         <th>Edit/Delete</th>
       </tr>
 
-      {props.data.map(row => (
+      {props.data?.map(row => (
         <tr>
-          <td>{row.projectID}</td>
-          <td>{row.userID}</td>
-          <td>{row.valuation}</td>
+          <td>{row.ProjectID}</td>
+          <td>{row.UserID}</td>
+          <td>{row.ProjectName}</td>
+          <td>{row.Valuation}</td>
+          <td>{row.PercentOwned}</td>
           <td>
             <button className="normal-button">Edit</button>{" "}
             <button className="normal-button">Delete</button>

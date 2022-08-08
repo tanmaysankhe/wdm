@@ -156,12 +156,11 @@ class Register extends React.Component {
           </div>
 
           <label for="standard-select" className="headin">
-            Relationship
+            How are you related to this person?
           </label>
           <div class="select">
             <select id="standard-select" onChange={this.handleChange} name="relation" value={this.state.relation}>
-              <option value="Father" selected>Father</option>
-              <option value="Mother">Mother</option>
+              {/* <option value="Father" selected>Father</option> */}
               <option value="Wife">Wife</option>
               <option value="Son">Son</option>
               <option value="Daughter">Daughter</option>
