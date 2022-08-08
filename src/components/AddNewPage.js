@@ -4,6 +4,7 @@ Zulfiya Amin Saiyed 1001929057 */
 
 import React from "react";
 import "./css/AddNewPage.css";
+import FamilyGroupAdd from "./FamilyGroupAdd";
 import LandCreateUpdate from "./LandCreateUpdate";
 import ProjectCreateUpdate from "./ProjectCreateUpdate";
 import TrialCreateUpdate from "./TrialCreateUpdate";
@@ -41,11 +42,18 @@ class AddNew extends React.Component {
         >
           Trial
         </button>
+        <button
+          className={`tabs ${this.state.curtab === "fgroup" ? "ses" : ""}`}
+          onClick={() => this.changeTab("fgroup")}
+        >
+          Family Group
+        </button>
 
         {this.state.curtab === "project" && (
           <ProjectCreateUpdate></ProjectCreateUpdate>
         )}
         {this.state.curtab === "land" && <LandCreateUpdate></LandCreateUpdate>}
+        {this.state.curtab === "fgroup" && <FamilyGroupAdd></FamilyGroupAdd>}
         {this.state.curtab === "trial" && (
           <TrialCreateUpdate></TrialCreateUpdate>
         )}
