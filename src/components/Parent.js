@@ -22,14 +22,15 @@ import Blog from "./Blog";
 class Parent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { curpage: "home", login: false };
+    this.state = { curpage: "home", login: false, isAdmin:false };
   }
 
-  changePage = (p) => {
+  changePage = (p, isAdmin=false) => {
     if (p === "userdash") {
       this.setState({
         curpage: p,
-        login: true
+        login: true,
+        isAdmin:isAdmin
       });
     }
     else {
@@ -148,6 +149,7 @@ class Parent extends React.Component {
           {this.state.curpage === "about" && <About></About>}
           {this.state.curpage === "userdash" && (
             <Dashboard
+            isAdmin={this.state.isAdmin}
               addnewfun={() => this.changePage("addnewpage")}
             />
           )}
@@ -156,7 +158,7 @@ class Parent extends React.Component {
             <Login
               forgotpass={() => this.changePage("forgotpass")}
               userdash={() => this.changePage("userdash")}
-              admindash={() => this.changePage("admindash")}
+              admindash={() => this.changePage("userdash",true)}
             ></Login>
           )}
           {this.state.curpage === "register" && <Register userdash={() => this.changePage("userdash")}></Register>}

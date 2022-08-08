@@ -10,92 +10,44 @@ import axios from "axios";
 class DashboardList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { data: "" };
+    this.state = { data: "", isAdmin: this.props.isAdmin, 
+    curuserid: parseInt(window.sessionStorage.getItem("currUserID")) };
   }
 
   componentDidMount() {
+    const userid = this.state.curuserid;
     axios
-        .get(
-            "https://txs8004.uta.cloud/backend/getAllAssets.php"
-        )
-        .then(res => {
-            this.setState({ data: res.data});
-            window.sessionStorage.setItem("projects", JSON.stringify(res.data.Projects));
-            window.sessionStorage.setItem("family", JSON.stringify(res.data.Family));
-            window.sessionStorage.setItem("users", JSON.stringify(res.data.Users));   
-            window.sessionStorage.setItem("projectownership", JSON.stringify(res.data.ProjectOwnership));
-            window.sessionStorage.setItem("land", JSON.stringify(res.data.Land));
-            window.sessionStorage.setItem("landownership", JSON.stringify(res.data.LandOwnership));
-            window.sessionStorage.setItem("trial", JSON.stringify(res.data.Trial));                       
-        })
-        .catch(error => console.log(error));
+      .get(
+        "https://txs8004.uta.cloud/backend/getAllAssets.php"
+      )
+      .then(res => {
+        if (this.state.isAdmin) {
+          this.setState({
+            data: res.data,
+            ProjectOwnership: res.data.ProjectOwnership,
+            LandOwnership: res.data.LandOwnership,
+            Trial: res.data.Trial
+          })
+        }
+        else {
+          this.setState({
+            data: res.data,
+            ProjectOwnership: res.data.ProjectOwnership.filter(p => parseInt(p.UserID) === userid),
+            LandOwnership: res.data.LandOwnership.filter(p => parseInt(p.UserID) === userid),
+            Trial: res.data.Trial.filter(p => parseInt(p.UserID) === userid)
+          })
+        }
+
+        window.sessionStorage.setItem("projects", JSON.stringify(res.data.Projects));
+        window.sessionStorage.setItem("family", JSON.stringify(res.data.Family));
+        window.sessionStorage.setItem("users", JSON.stringify(res.data.Users));
+        window.sessionStorage.setItem("projectownership", JSON.stringify(res.data.ProjectOwnership));
+        window.sessionStorage.setItem("land", JSON.stringify(res.data.Land));
+        window.sessionStorage.setItem("landownership", JSON.stringify(res.data.LandOwnership));
+        window.sessionStorage.setItem("trial", JSON.stringify(res.data.Trial));
+      })
+      .catch(error => console.log(error));
   }
-  
-
-  data = {
-    "project": [{
-      "projectID": 1,
-      "userID": 123,
-      "valuation": 10000,
-    },
-    {
-      "projectID": 1,
-      "userID": 123,
-      "valuation": 10000,
-    },
-    {
-      "projectID": 1,
-      "userID": 123,
-      "valuation": 10000,
-    }],
-    "land": [{
-      "projectID": 1,
-      "userID": 123,
-      "valuation": 10000,
-    },
-    {
-      "projectID": 1,
-      "userID": 123,
-      "valuation": 10000,
-    },
-    {
-      "projectID": 1,
-      "userID": 123,
-      "valuation": 10000,
-    }],
-    "user": [{
-      "projectID": 1,
-      "userID": 123,
-      "valuation": 10000,
-    },
-    {
-      "projectID": 1,
-      "userID": 123,
-      "valuation": 10000,
-    },
-    {
-      "projectID": 1,
-      "userID": 123,
-      "valuation": 10000,
-    }],
-    "trial": [{
-      "projectID": 1,
-      "userID": 123,
-      "valuation": 10000,
-    },
-    {
-      "projectID": 1,
-      "userID": 123,
-      "valuation": 10000,
-    },
-    {
-      "projectID": 1,
-      "userID": 123,
-      "valuation": 10000,
-    }]
-
-  };
-
 
 
   projectFieldNames = ["Project ID", "ProjectName", "User ID", "Valuation", "Percent Owned"];
@@ -106,9 +58,9 @@ class DashboardList extends React.Component {
   render() {
     return (
       <div>
-        <Dashtable tableType={"Projects"} fieldnames={this.projectFieldNames} data={this.state.data.ProjectOwnership}></Dashtable>
-        <DashtableLand tableType={"Land"} fieldnames={this.landFieldNames} data={this.state.data.LandOwnership}></DashtableLand>
-        <DashtableTrial tableType={"Trials"} fieldnames={this.trialFieldNames} data={this.state.data.Trial}></DashtableTrial>
+        <Dashtable tableType={"Projects"} fieldnames={this.projectFieldNames} data={this.state.ProjectOwnership}></Dashtable>
+        <DashtableLand tableType={"Land"} fieldnames={this.landFieldNames} data={this.state.LandOwnership}></DashtableLand>
+        <DashtableTrial tableType={"Trials"} fieldnames={this.trialFieldNames} data={this.state.Trial}></DashtableTrial>
         <DashtableUsers tableType={"User"} fieldnames={this.userFieldNames} data={this.state.data.Users}></DashtableUsers>
       </div>
     );
@@ -116,7 +68,7 @@ class DashboardList extends React.Component {
 }
 function DashtableUsers(props) {
   return (<div>
-    <br/>
+    <br />
     <h2>{props.tableType}</h2>
     <table className="dashboardtable">
       <tr>
@@ -128,17 +80,17 @@ function DashtableUsers(props) {
           <td>{row.UserID}</td>
           <td>{row.FullName}</td>
           <td>{row.UserEmail}</td>
-          
+
         </tr>
       ))}
     </table>
-    <br/>
+    <br />
   </div>)
 }
 
 function DashtableTrial(props) {
   return (<div>
-    <br/>
+    <br />
     <h2>{props.tableType}</h2>
     <table className="dashboardtable">
       <tr>
@@ -161,13 +113,13 @@ function DashtableTrial(props) {
         </tr>
       ))}
     </table>
-    <br/>
+    <br />
   </div>)
 }
 
 function DashtableLand(props) {
   return (<div>
-    <br/>
+    <br />
     <h2>{props.tableType}</h2>
     <table className="dashboardtable">
       <tr>
@@ -189,13 +141,13 @@ function DashtableLand(props) {
         </tr>
       ))}
     </table>
-    <br/>
+    <br />
   </div>)
 }
 
 function Dashtable(props) {
   return (<div>
-    <br/>
+    <br />
     <h2>{props.tableType}</h2>
     <table className="dashboardtable">
       <tr>
@@ -217,7 +169,7 @@ function Dashtable(props) {
         </tr>
       ))}
     </table>
-    <br/>
+    <br />
   </div>)
 }
 

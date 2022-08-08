@@ -27,7 +27,7 @@ const GroupedBarChart = (props) => {
 
   var piedata = [
     {
-      values: [64, 36],
+      values: [10000, 36000],
       labels: ["Land", "Project"],
       type: "pie",
     },
@@ -54,7 +54,7 @@ const GroupedBarChart = (props) => {
 class Dashboard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { data: "" };
+    this.state = { data: "", isAdmin:this.props.isAdmin };
   };
 
   componentDidMount() {
@@ -66,6 +66,11 @@ class Dashboard extends React.Component {
     axios.post(url, body)
       .then(res => {
         this.setState({
+          curUserName :window.sessionStorage.getItem("currUsername"),
+          landData:res.data.LandChart,
+          landTitle:res.data.LandChart.map(p => p.LandName),
+          landPercent:res.data.LandChart.map(p => p.PercentOwned),
+          landArea:res.data.LandChart.map(p => p.Area),
           projectData: res.data.ProjectChart,
           projectBarTitles: res.data.ProjectChart.map(p => p.ProjectName),
           projectBarData: res.data.ProjectChart.map(p => p.PercentOwned),
@@ -78,24 +83,37 @@ class Dashboard extends React.Component {
   render() {
     return (
       <div>
-        <h1>User Dashboard</h1>
+       {this.state.isAdmin ?
+      <h1>Admin Panel</h1>
+      :
+      <h1>Welcome {this.state.curUserName}</h1> 
+      }
+        
         {/* <GroupedBarChart></GroupedBarChart> */}
         <br />
-
-        <Plot
+{!this.state.isAdmin && <div>
+ 
+  <Plot
           data={[{ x: this.state.projectBarTitles, y: this.state.projectBarData, type: "bar" }]}
-          layout={{ width: 500, height: 500, title: "Land/Project holdings" }}
+          layout={{ width: 500, height: 500, title: "Project holdings" }}
         />
 
         <Plot
           data={[{ x: this.state.projectBarTitles, y: this.state.projectPieData, type: "bar" }]}
-          layout={{ width: 500, height: 500, title: "Land/Project holdings" }}
+          layout={{ width: 500, height: 500, title: "Project Valuation" }}
         />
 
+        <Plot
+          data={[{ values: (this.state.landArea), labels: this.state.landTitle, type: "pie" }]}
+          layout={{ width: 500, height: 500, title: "Land holdings" }}
+        />
+ 
+  </div>}
+        
         <button class="normal-button" onClick={this.props.addnewfun}>
           Add new data
         </button>
-        <DashboardList></DashboardList>
+        <DashboardList isAdmin={this.state.isAdmin}></DashboardList>
       </div>
     );
   }
